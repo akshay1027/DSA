@@ -3,7 +3,6 @@ using namespace std;
 
 void combination(int index, int target, vector<int> &nums, vector<int> &temp, vector<vector<int>> &answer)
 {
-    // if index is reached end of array, then return the recursive function!
     if (index == nums.size())
     {
         if (target == 0)
@@ -23,9 +22,10 @@ void combination(int index, int target, vector<int> &nums, vector<int> &temp, ve
         //     cout << *i << " ";
         // }
         // cout << endl;
-        combination(index, target - nums[index], nums, temp, answer);
+        combination(index + 1, target - nums[index], nums, temp, answer);
         // cout << "Hi" << endl;
-        temp.pop_back();
+        // temp.pop_back();
+        temp.erase(temp.begin());
     }
     // cout << " not pick ";
     // for (auto i = temp.begin(); i != temp.end(); ++i)
@@ -70,63 +70,3 @@ int main()
 
     return 0;
 }
-
-/*
-
-7
-4
-2 3 6 7
- pick 2 
- pick 2 2
- pick 2 2 2
- not pick 2 2 2
- not pick 2 2 2
- not pick 2 2 2
- not pick 2 2 2
-Hi
- not pick 2 2
- pick 2 2 3
- not pick 2 2 3
- not pick 2 2 3
- not pick 2 2 3
-Hi
- not pick 2 2
- not pick 2 2
- not pick 2 2
-Hi
- not pick 2
- pick 2 3
- not pick 2 3
- not pick 2 3
- not pick 2 3
-Hi
- not pick 2
- not pick 2
- not pick 2
-Hi
- not pick
- pick 3
- pick 3 3
- not pick 3 3
- not pick 3 3
- not pick 3 3 
-Hi
- not pick 3
- not pick 3
- not pick 3
-Hi
- not pick
- pick 6
- not pick 6
- not pick 6
-Hi
- not pick
- pick 7
- not pick 7
-Hi
- not pick
-2 2 3
-7
-
-
-*/
