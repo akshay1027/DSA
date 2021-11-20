@@ -15,6 +15,6 @@ void pushZerosAtEnd(vector<int> &arr)
             counter++;
         }
     }
-    for (int i = 0; i < counter; i++)
+    for (int i = counter; i < arr.size(); i++)
         arr[i] = 0;
 }
